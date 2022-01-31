@@ -5,7 +5,7 @@ const geocode = require("./utils/geocode");
 const forecast = require("./utils/forecast");
 
 const app = express();
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3000;
 
 // define paths for Express config
 const publicDirectoryPath = path.join(__dirname, "../public");
@@ -24,29 +24,29 @@ app.use(express.static(publicDirectoryPath));
 app.get("", (req, res) => {
   res.render("index", {
     title: "Weather app",
-    name: "avinash dhanani",
+    name: "Avinash Dhanani",
   });
 });
 
 app.get("/about", (req, res) => {
   res.render("about", {
     title: "About Us",
-    name: "avinash dhanani",
+    name: "Avinash Dhanani",
   });
 });
 
 app.get("/help", (req, res) => {
   res.render("help", {
     title: "help",
-    helpText: "this is some helpful text",
-    name: "avinash dhanani",
+    helpText: "avinashdhanani1@gmail.com",
+    name: "Avinash Dhanani",
   });
 });
 
 app.get("/help/*", (req, res) => {
   res.render("404", {
     title: "404",
-    name: "avinash dhanani",
+    name: "Avinash Dhanani",
     errorMessage: "help artical not found",
   });
 });
@@ -94,7 +94,7 @@ app.get("/products", (req, res) => {
 app.get("*", (req, res) => {
   res.render("404", {
     title: "404",
-    name: "avinash dhanani",
+    name: "Avinash Dhanani",
     errorMessage: "Page not found.",
   });
 });
