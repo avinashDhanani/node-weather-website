@@ -11,9 +11,15 @@ const forecast = ({longitute, latitute, address}={}, callback) => {
         callback("Unable to find location",undefined);
       } else {
           callback(undefined, {
-              location: body.location.name + ", " + body.location.country,
-              temperature: body.current.temperature
-          })
+            location: body.location.name + ", " + body.location.country,
+            temperature:
+              "temperature : " +
+              body.current.temperature +
+              ", wind speed : " +
+              body.current.wind_speed +
+              ", uv index : " +
+              body.current.uv_index,
+          });
       }
     });
 }
