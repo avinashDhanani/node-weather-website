@@ -1,0 +1,70 @@
+// insert data into mongodb
+db.person.insertMany([{},{}]);
+
+// count how many document in database
+db.person.count();
+
+// find all documents in mongoDB
+db.getCollection('persons').find({});
+
+// find person age is 20
+db.getCollection('person').find({age:20});
+
+// find person who age is 20 and city is ahmedabad
+db.getCollection('person').find({'age':20,'city':'ahemdabad'});
+
+// operators in SQL
+{fildName:{opration,values}}
+ex:
+ 1. not equal : {"favoriteFruit":{"$ne":"apple"}}
+ 2. greater than : {"age":{"$gt":25}}
+ 3. in {"eyeColor":{"$in":["green","blue"]}}
+
+1. Comparison Operators
+   1. $eq (equal)    : {"age":{"$eq":20}}
+   2. $ne (not equal) : {"age":{"$ne":20}}
+   3. $gt (greater than) : {"age":{"$gt":20}}
+   4. $gte (greater than equal) : {"age":{"$gte":20}}
+   5. $lt (less than) 	: {"age":{"$lt":20}}
+   6. $lte (less than equal) : {"age",{"$lte":20}}
+   7. $in (inside array)     : {"age":{"$in":[21,22]}} 
+   8. $nin (not in array)    : {"age":{"$nin":[21,22]}} 
+    mix query
+	1. gt and lt : {"age":{"$ne":20,"$gt":10,"$lt":30}}
+
+// sort data
+=>   db.getCollection('persons').find({"name":{"$gt":"N"}}).sort({"name":1});
+	.sort({"key":1})  ascending   1,2,3,4,5,6,7,8,...
+	.sort({"key":-1}) descending  8,7,6,5,4,3,2,1,...
+
+// and operator
+=> {$and:[{"gender":"male"},{"age":25}]}   // Explicit $and => no override are there both condition execute
+=> {"age":{"$ne":25},"age":{"$gte":20}}    // first condition override by second condition	
+
+// or operator
+=> ({$or:[{},{}]})
+=> example
+     ({$or:[{eyeColor:"green"},{eyeColor:"blue"}]})
+
+
+// Query Embedded Documents (nested Json File)
+=>   "company":{
+     	"title":"SHEPARD",
+	"email":"avinash@gmail.com",
+	"phone":"9104136213",
+	"location":{
+	    "country":"USA",
+	    "address":"379 Tabor Court"
+	}
+     }
+
+=> Query example
+     {"company.title":"SHEPARD"}
+     {"company.location.address":"379 Tabor Court"}
+
+// 11. Query Array by field Value
+=> data = "tags":["admin","avinash","dhanani"];
+
+=> query example 
+    find({tags:"ad"}) // return all value. value array tags contain "ad"
+    find({"tags.1":"ad"}) // return all document that contain "ad"
