@@ -1,0 +1,40 @@
+.main-div{
+    border: 1px solid black;
+    width:40vw;
+    height: 70vh;
+    border-radius: 20px;
+    background-color: rgb(224, 204, 204);
+    margin: auto;
+}
+
+.gridL{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+}
+.grid-item{
+    padding: 20px;
+    border: 1px solid black;
+    margin: 3px;
+    border-radius: 20px;
+    text-align: center;
+    background-color: rgb(224, 224, 224);
+    font-weight: 1000;
+    color: black;
+}
+.grid-item:hover{
+    background-color:  rgb(163, 157, 157);
+    box-shadow: 1px 1px;
+}
+
+.output-div-main{
+    height: 20vh;
+    padding: 10px;
+    border: 1px solid black;
+    margin: 1%;
+    border-radius: 20px;
+    background-color: rgb(224, 224, 224);
+}
+
+#screen-ans{
+    margin-top: 40px;
+}
